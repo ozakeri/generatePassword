@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/main_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <samidsoft.co.passwordgenerator.toolbar.CenteredToolbar
+                android:id="@+id/toolbar"
+                style="@style/ToolbarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                tools:ignore="MissingConstraints" />
+
+            <include
+                android:id="@+id/generated_password_container"
+                layout="@layout/generated_password_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/generated_password_layout_height"
+                android:layout_below="@+id/toolbar" />
+
+            <include
+                layout="@layout/password_options_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/generated_password_container" />
+
+            <include layout="@layout/generate_password_button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_below="@+id/generated_password_container"
+                android:background="@drawable/tb_shadow"/>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
