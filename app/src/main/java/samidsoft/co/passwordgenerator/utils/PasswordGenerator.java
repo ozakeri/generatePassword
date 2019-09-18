@@ -1,22 +1,9 @@
-/*
- * PasswordGenerator - PasswordGenerator.java
- *
- * Created by Marcos Calvo García on 13/08/18 0:30.
- * Copyright (c) 2018. All rights reserved.
- *
- * Last modified 12/08/18 23:43.
- */
-
 package samidsoft.co.passwordgenerator.utils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Password generator.
- * See: https://stackoverflow.com/a/41891760
- */
 public final class PasswordGenerator {
 
     private static final String LOWER = "abcdefghijklmnopqrstuvwxyz";
