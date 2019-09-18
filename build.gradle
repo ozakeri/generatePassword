@@ -29,6 +29,7 @@ ext{
     supportLibraryVersion = '28.0.0'
     discreteSeekbarVersion = '1.0.1'
     butterKnifeVersion = '10.2.0'
+    roomVersion = '1.1.1'
 }
 
 task clean(type: Delete) {
