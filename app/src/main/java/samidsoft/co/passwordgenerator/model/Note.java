@@ -3,14 +3,17 @@ package samidsoft.co.passwordgenerator.model;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 import java.io.Serializable;
 import java.util.Date;
 
+import samidsoft.co.passwordgenerator.utils.DateConverter;
+
 @Entity
 public class Note implements Serializable {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private Long id;
     @ColumnInfo(name = "title")
@@ -20,6 +23,7 @@ public class Note implements Serializable {
     @ColumnInfo(name = "searchKey")
     private String searchKey;
     @ColumnInfo(name = "dateCreation")
+    @TypeConverters({DateConverter.class})
     private Date dateCreation;
 
     public Long getId() {

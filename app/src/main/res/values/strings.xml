@@ -9,4 +9,9 @@
     <string name="password_copied">Password successfully copied to clipboard</string>
     <string name="symbols">Symbols</string>
     <string name="upper_letters">Uppercase letters</string>
+    <string name="copy">copy</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
+    <string name="discard">Discard</string>
 </resources>

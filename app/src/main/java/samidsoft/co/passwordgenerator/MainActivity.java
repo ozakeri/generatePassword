@@ -3,17 +3,18 @@ package samidsoft.co.passwordgenerator;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ShareCompat;
 
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
@@ -58,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_copy)
     AppCompatImageButton copy;
+
+    @BindView(R.id.img_add)
+    AppCompatImageButton img_add;
 
 
     @OnClick(R.id.lower_letters_container)
@@ -111,12 +115,19 @@ public class MainActivity extends AppCompatActivity {
                 .startChooser();
     }
 
+    @OnClick(R.id.img_add)
+    void addNotes() {
+        startActivity(new Intent(this, NotesActivity.class));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ButterKnife.bind(this);
+
+        setSupportActionBar(toolbar);
+
         lengthTitle.setText(String.format(getResources().getString(R.string.length),
                 String.valueOf(passwordLengthSeekBar.getProgress())));
 
@@ -162,4 +173,20 @@ public class MainActivity extends AppCompatActivity {
                 .useDigits(digitsSwitch.isChecked())
                 .usePunctuation(symbolsSwitch.isChecked()).build();
     }
+
+
+  /*  @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.add) {
+            Toast.makeText(this, "add", Toast.LENGTH_LONG).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
 }

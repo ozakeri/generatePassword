@@ -32,7 +32,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    implementation ("org.adw.library:discrete-seekbar:$rootProject.discreteSeekbarVersion") {
+    implementation("org.adw.library:discrete-seekbar:$rootProject.discreteSeekbarVersion") {
         exclude group: 'com.android.support'
         exclude module: 'appcompat-v7'
         exclude module: 'support-v4'
@@ -43,5 +43,7 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
     implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
-
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerviewVersion"
+    implementation "androidx.cardview:cardview:$rootProject.cardviewVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
 }
