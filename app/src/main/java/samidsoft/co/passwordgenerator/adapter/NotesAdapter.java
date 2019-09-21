@@ -39,8 +39,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.CustomView> 
             System.out.println("=======-----" + note.getTitle());
             System.out.println("=======-----" + note.getDateCreation());
             System.out.println("=======-----" + note.getDescription());
-            holder.txt_title.setText(note.getTitle());
-            holder.txt_description.setText(note.getDescription());
+            holder.txt_title.setText(note.getTitle() + " : Title");
+            holder.txt_description.setText(note.getDescription() + " : Description");
         //}
     }
 

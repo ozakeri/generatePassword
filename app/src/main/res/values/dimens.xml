@@ -8,5 +8,6 @@
     <dimen name="small_margin">4dp</dimen>
     <dimen name="toolbar_shadow_height">4dp</dimen>
     <dimen name="generated_password_layout_height">104dp</dimen>
+    <dimen name="adapter_text_margin">10dp</dimen>
 
 </resources>
