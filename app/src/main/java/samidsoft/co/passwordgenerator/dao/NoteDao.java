@@ -1,6 +1,5 @@
 package samidsoft.co.passwordgenerator.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,11 +13,17 @@ import samidsoft.co.passwordgenerator.model.Note;
 @Dao
 public interface NoteDao {
 
-    @Insert
-    Long insertNote(Note note);
+    @Query("SELECT * FROM note")
+    List<Note> getAllNotes();
 
-    @Query("SELECT * FROM Note ORDER BY dateCreation ASC")
-    LiveData<List<Note>> getAllNotes();
+    @Query("SELECT * FROM note WHERE title = :key")
+    List<Note> getNotesByKey(Long key);
+
+    @Query("SELECT * FROM note WHERE title LIKE '%'|| :key || '%'")
+    List<Note> getNotesByKeyWord(String key);
+
+    @Insert
+    void insertNote(Note note);
 
     @Update
     void updateNote(Note note);

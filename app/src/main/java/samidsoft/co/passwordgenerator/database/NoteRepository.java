@@ -13,12 +13,12 @@ import samidsoft.co.passwordgenerator.model.Note;
 public class NoteRepository {
 
     private NoteDao noteDao;
-    private LiveData<List<Note>> getAllNotes;
+    private List<Note> getAllNotes;
 
     public NoteRepository(Application application) {
-        NoteDatabase noteDatabase = NoteDatabase.getDatabase(application);
-        noteDao = noteDatabase.noteDao();
-        getAllNotes = noteDao.getAllNotes();
+        //NoteDatabase noteDatabase = NoteDatabase.getDatabase(application);
+        //noteDao = noteDatabase.noteDao();
+        //getAllNotes = noteDao.getAllNotes();
     }
 
     public void insert(Note note) {
@@ -33,7 +33,7 @@ public class NoteRepository {
         new DeleteNote((NoteDao) note);
     }
 
-    public LiveData<List<Note>> getAllNotes() {
+    public List<Note> getAllNotes() {
         return getAllNotes;
     }
 

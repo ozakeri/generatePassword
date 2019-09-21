@@ -19,11 +19,14 @@ import androidx.core.app.ShareCompat;
 
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
+import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import samidsoft.co.passwordgenerator.database.NoteRepository;
+import samidsoft.co.passwordgenerator.model.Note;
 import samidsoft.co.passwordgenerator.utils.PasswordGenerator;
 
 public class MainActivity extends AppCompatActivity {
@@ -125,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
         setSupportActionBar(toolbar);
 
         lengthTitle.setText(String.format(getResources().getString(R.string.length),
