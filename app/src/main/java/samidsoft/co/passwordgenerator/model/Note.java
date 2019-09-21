@@ -1,5 +1,6 @@
 package samidsoft.co.passwordgenerator.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -16,12 +17,18 @@ public class Note implements Serializable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private Long id;
+
     @ColumnInfo(name = "title")
+    @NonNull
     private String title;
+
     @ColumnInfo(name = "description")
+    @NonNull
     private String description;
+
     @ColumnInfo(name = "searchKey")
     private String searchKey;
+
     @ColumnInfo(name = "dateCreation")
     @TypeConverters({DateConverter.class})
     private Date dateCreation;

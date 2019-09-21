@@ -35,13 +35,13 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.CustomView> 
     public void onBindViewHolder(@NonNull CustomView holder, int position) {
         Note note = list.get(position);
 
-        if (note != null) {
+        //if (note != null) {
             System.out.println("=======-----" + note.getTitle());
             System.out.println("=======-----" + note.getDateCreation());
             System.out.println("=======-----" + note.getDescription());
             holder.txt_title.setText(note.getTitle());
             holder.txt_description.setText(note.getDescription());
-        }
+        //}
     }
 
     @Override
