@@ -5,4 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="text_date">#BDA9A9</color>
     <color name="cardview_adapter">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="backcolor_dialog">#CCC5C5</color>
 </resources>

@@ -3,11 +3,13 @@ package samidsoft.co.passwordgenerator;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import java.util.Date;
 
@@ -18,6 +20,9 @@ import samidsoft.co.passwordgenerator.database.DatabaseClient;
 import samidsoft.co.passwordgenerator.model.Note;
 
 public class AddNotesActivity extends AppCompatActivity {
+
+    @BindView(R.id.txt_header)
+    AppCompatTextView txt_header;
 
     @BindView(R.id.input_title1)
     AppCompatEditText text1;
@@ -50,6 +55,7 @@ public class AddNotesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main2);
         ButterKnife.bind(this);
 
@@ -62,7 +68,8 @@ public class AddNotesActivity extends AppCompatActivity {
                 text2.setText(note.getDescription());
             }
 
-            System.out.println("EXTRA====" + bundle.getString("EXTRA"));
+            String header = bundle.getString("EXTRA");
+            txt_header.setText(header);
         }
     }
 
