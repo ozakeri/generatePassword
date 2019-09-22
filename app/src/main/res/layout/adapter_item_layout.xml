@@ -1,40 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:layout_margin="10dp">
+        android:layout_margin="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/cardview_adapter">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:layout_alignParentRight="true"
-                android:layout_margin="@dimen/adapter_text_margin"/>
+                android:layout_alignParentLeft="true"
+                android:layout_margin="@dimen/adapter_text_margin"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txt_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/colorAccent"
                 android:layout_below="@+id/txt_title"
-                android:layout_margin="@dimen/adapter_text_margin"/>
+                android:layout_alignParentLeft="true"
+                android:layout_margin="@dimen/adapter_text_margin"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_description"
+                android:layout_alignParentRight="true"
+                android:textSize="10sp"
+                android:layout_margin="@dimen/adapter_text_margin"
+                android:textColor="@color/text_date" />
 
 
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
-
 
 
 </RelativeLayout>

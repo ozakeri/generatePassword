@@ -2,6 +2,7 @@ package samidsoft.co.passwordgenerator;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -31,6 +32,11 @@ import samidsoft.co.passwordgenerator.model.Note;
 
 public class NotesActivity extends AppCompatActivity {
 
+    private NotesAdapter notesAdapter;
+    private Note note;
+    private String EXTRA = "New";
+
+
     @Nullable
     @BindView(R.id.btn_floating)
     FloatingActionButton btn_floating;
@@ -58,8 +64,9 @@ public class NotesActivity extends AppCompatActivity {
     @Optional
     @OnClick(R.id.btn_floating)
     void getDialog() {
-        Toast.makeText(this, getResources().getString(R.string.password_copied), Toast.LENGTH_SHORT).show();
-        showDialog();
+        Intent intent = new Intent(this, AddNotesActivity.class);
+        intent.putExtra("EXTRA", EXTRA);
+        startActivity(intent);
     }
 
     @Override
@@ -69,6 +76,8 @@ public class NotesActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         getAllData();
+
+        registerForContextMenu(recyclerView);
     }
 
     public void showDialog() {
@@ -80,11 +89,11 @@ public class NotesActivity extends AppCompatActivity {
         ButterKnife.bind(this, dialog);
 
         save.setOnClickListener(view1 -> {
+
             String title = input_title1.getText().toString();
             String description = input_title2.getText().toString();
-            System.out.println("===--====" + title + "  " + description);
 
-            Note note = new Note();
+            note = new Note();
             note.setTitle(title);
             note.setDescription(description);
             note.setDateCreation(new Date());
@@ -128,9 +137,12 @@ public class NotesActivity extends AppCompatActivity {
             protected Void doInBackground(Void... voids) {
                 List<Note> list = DatabaseClient.getInstance(NotesActivity.this).getNoteDatabase().noteDao().getAllNotes();
                 if (list != null) {
-                    NotesAdapter notesAdapter = new NotesAdapter(getApplicationContext(), list);
-                    recyclerView.setAdapter(notesAdapter);
-                    System.out.println("getItemCount===" + notesAdapter.getItemCount());
+                    notesAdapter = new NotesAdapter(getApplicationContext(), list);
+                    if (recyclerView != null) {
+                        recyclerView.setAdapter(notesAdapter);
+                        System.out.println("getItemCount===" + notesAdapter.getItemCount());
+                    }
+
                 }
                 return null;
             }
@@ -144,4 +156,46 @@ public class NotesActivity extends AppCompatActivity {
         GetAllTask getAllTask = new GetAllTask();
         getAllTask.execute();
     }
+
+    public void updateNote(Note note) {
+        class UpdateNotes extends AsyncTask<Void, Void, Void> {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                DatabaseClient.getInstance(NotesActivity.this).getNoteDatabase().noteDao().updateNote(note);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+            }
+        }
+
+        UpdateNotes updateNotes = new UpdateNotes();
+        updateNotes.execute();
+    }
+
+
+    public void getNoteById(int position) {
+
+        class GetNoteByKey extends AsyncTask<Void, Void, Void> {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                note = DatabaseClient.getInstance(NotesActivity.this).getNoteDatabase().noteDao().getNotesByKey((long) position);
+                return null;
+
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+            }
+        }
+
+        GetNoteByKey getNoteByKey = new GetNoteByKey();
+        getNoteByKey.execute();
+    }
+
 }

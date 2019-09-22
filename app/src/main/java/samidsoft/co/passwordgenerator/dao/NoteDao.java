@@ -16,8 +16,8 @@ public interface NoteDao {
     @Query("SELECT * FROM note")
     List<Note> getAllNotes();
 
-    @Query("SELECT * FROM note WHERE title = :key")
-    List<Note> getNotesByKey(Long key);
+    @Query("SELECT * FROM note WHERE id = :key")
+    Note getNotesByKey(Long key);
 
     @Query("SELECT * FROM note WHERE title LIKE '%'|| :key || '%'")
     List<Note> getNotesByKeyWord(String key);
