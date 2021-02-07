@@ -64,9 +64,10 @@ public class NotesActivity extends AppCompatActivity {
     @Optional
     @OnClick(R.id.btn_floating)
     void getDialog() {
-        Intent intent = new Intent(this, AddNotesActivity.class);
-        intent.putExtra("EXTRA", EXTRA);
-        startActivity(intent);
+        //Intent intent = new Intent(this, AddNotesActivity.class);
+        //intent.putExtra("EXTRA", EXTRA);
+        //startActivity(intent);
+        showDialog();
     }
 
     @Override

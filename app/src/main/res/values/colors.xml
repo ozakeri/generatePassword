@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="text_date">#BDA9A9</color>
+    <color name="colorPrimary">#B1293D</color>
+    <color name="colorPrimaryDark">#A1182C</color>
+    <color name="colorAccent">#AE3446</color>
+    <color name="text_date">#CD9494</color>
     <color name="cardview_adapter">#ffffff</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="black_hint">#AE9999</color>
     <color name="backcolor_dialog">#CCC5C5</color>
 </resources>

@@ -56,7 +56,7 @@ public class AddNotesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.add_notes_layout_dialog);
         ButterKnife.bind(this);
 
         Intent intent = this.getIntent();
